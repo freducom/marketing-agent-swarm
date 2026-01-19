@@ -1,0 +1,22 @@
+# Marketing Agent Swarm configuration
+# Default provider is OpenAI. Set OPENAI_API_KEY in your environment.
+# Example:
+#   export OPENAI_API_KEY="sk-..."
+#
+# You can swap providers by implementing another adapter in src/swarm/llm_adapters.py
+# and setting provider accordingly.
+
+[llm]
+provider = "openai"              # "openai" (default)
+model = "gpt-4.1-mini"           # change as desired
+temperature = 0.4
+max_tokens = 1800
+timeout_seconds = 60
+
+[swarm]
+max_review_cycles = 2            # analyst review loops before finalization
+artifact_dir = "out"
+log_jsonl = true
+
+[project]
+name = "Marketing Agent Swarm"

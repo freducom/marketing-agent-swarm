@@ -1,0 +1,9 @@
+[project]
+name = "marketing-agent-swarm"
+version = "0.1.0"
+description = "A small marketing multi-agent swarm with JSON protocol and configurable LLM provider."
+requires-python = ">=3.10"
+dependencies = ["requests", "tomli; python_version<'3.11'"]
+
+[project.scripts]
+swarm = "swarm.cli:main"

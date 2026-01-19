@@ -1,0 +1,12 @@
+{
+  "product": "Vaadin",
+  "what_it_does": "Helps Java developers build modern web applications faster with a rich set of UI components and tools.",
+  "primary_audience": "Java Developers at 200-2000 employee companies",
+  "offer": "Free 30-minute audit + template pack",
+  "differentiators": [
+    "Build UIs 100% in Java – no JavaScript framework required",
+    "Enterprise-grade UI components with long-term support",
+    "Full-stack productivity: backend, UI, and security in one framework"
+  ],
+  "pricing_note": "Opensource core with paid enterprise features"
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SwarmMessage",
+  "type": "object",
+  "required": [
+    "protocol_version",
+    "message_id",
+    "task_id",
+    "timestamp",
+    "from",
+    "to",
+    "type",
+    "payload"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": [
+        "1.0"
+      ]
+    },
+    "message_id": {
+      "type": "string",
+      "description": "UUIDv4"
+    },
+    "task_id": {
+      "type": "string",
+      "description": "UUIDv4 for the overall task/run"
+    },
+    "timestamp": {
+      "type": "string",
+      "description": "ISO 8601"
+    },
+    "from": {
+      "type": "string",
+      "description": "Agent name or 'orchestrator'"
+    },
+    "to": {
+      "type": "string",
+      "description": "Agent name, 'broadcast', or 'orchestrator'"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "TASK",
+        "CLARIFY",
+        "FINDINGS",
+        "PLAN",
+        "DRAFT",
+        "CHANNEL_PLAN",
+        "REVIEW",
+        "REVISION",
+        "FINAL",
+        "STATUS",
+        "ERROR"
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "required": [
+        "goal",
+        "inputs",
+        "constraints",
+        "artifacts",
+        "next"
+      ],
+      "properties": {
+        "goal": {
+          "type": "string"
+        },
+        "inputs": {
+          "type": "object"
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "format",
+              "content"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "markdown",
+                  "json",
+                  "text"
+                ]
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "next": {
+          "type": "array",
+          "description": "Requested next actions / handoffs",
+          "items": {
+            "type": "object",
+            "required": [
+              "to",
+              "action"
+            ],
+            "properties": {
+              "to": {
+                "type": "string"
+              },
+              "action": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              }
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,4 @@
+- Tone: confident, practical, B2B, not hypey
+- Avoid unverifiable superlatives (e.g., "best", "fastest") unless backed by proof
+- Keep homepage hero subheadline <= 20 words
+- Email body <= 180 words each
